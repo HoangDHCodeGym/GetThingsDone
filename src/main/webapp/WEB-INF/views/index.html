@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: solid black 1px;
+        }
+    </style>
+</head>
+<body>
+<h1>List of Things</h1>
+<a th:href="@{/thing}">Create</a>
+<table>
+    <tr>
+        <th>Name </th>
+        <th>Description </th>
+        <th>Action</th>
+    </tr>
+    <th:block th:each="thing: ${listOfThings}">
+        <tr>
+            <td th:text="${thing.name}"></td>
+            <td th:text="${thing.description}"></td>
+            <td><a href="#">Edit</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
